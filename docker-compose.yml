@@ -30,8 +30,28 @@ services:
     networks:
       - pgecommerce
 
+  redis:
+    image: redis:alpine
+    volumes:
+      - redisdata:/data
+    ports:
+      - 6379:6379
+    networks:
+      - pgecommerce
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=redis
+    ports:
+      - 8081:8081
+    networks:
+      - pgecommerce
+
 volumes:
   pgdb:
+    external: false
+  redisdata:
     external: false
 
 networks:

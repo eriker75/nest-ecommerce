@@ -21,6 +21,8 @@ import { ConfigurationsModule } from './configurations/configurations.module';
 import { BrandsModule } from './brands/brands.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { PurchasesModule } from './purchases/purchases.module';
+import { QueueModule } from './queue/queue.module';
+import { CronModule } from './cron/cron.module';
 
 const AppModules = [
   CartModule,
@@ -46,6 +48,9 @@ const AppModules = [
   BrandsModule,
   ReviewsModule,
   PurchasesModule,
+  ConfigurationsModule,
+  QueueModule,
+  CronModule,
 ];
 
 export { AppModules };

@@ -5,7 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: '*',
-  }); // Add this line
+  });
   await app.listen(3000);
 }
 bootstrap();
