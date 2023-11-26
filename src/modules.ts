@@ -23,6 +23,9 @@ import { ReviewsModule } from './reviews/reviews.module';
 import { PurchasesModule } from './purchases/purchases.module';
 import { QueueModule } from './queue/queue.module';
 import { CronModule } from './cron/cron.module';
+import { ChatModule } from './chat/chat.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { SeedModule } from './seed/seed.module';
 
 const AppModules = [
   CartModule,
@@ -51,6 +54,9 @@ const AppModules = [
   ConfigurationsModule,
   QueueModule,
   CronModule,
+  SeedModule,
+  NotificationsModule,
+  ChatModule,
 ];
 
 export { AppModules };
