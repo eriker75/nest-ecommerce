@@ -1,6 +1,3 @@
-import { BrandEntity } from 'src/brands/entities/brand.entity';
-import { CategoryEntity } from 'src/categories/entities/category.entity';
-import { ReviewEntity } from 'src/reviews/entities/review.entity';
 import {
   Entity,
   Column,
@@ -10,7 +7,12 @@ import {
   UpdateDateColumn,
   CreateDateColumn,
   JoinTable,
+  ManyToMany,
 } from 'typeorm';
+import { BrandEntity } from 'src/brands/entities/brand.entity';
+import { CategoryEntity } from 'src/categories/entities/category.entity';
+import { ReviewEntity } from 'src/reviews/entities/review.entity';
+import { TagEntity } from 'src/tags/entities/tag.entity';
 
 @Entity({
   name: 'products',
@@ -61,4 +63,7 @@ export class ProductEntity {
   @OneToMany(() => ReviewEntity, (review) => review.product)
   @JoinTable()
   reviews: ReviewEntity[];
+
+  @ManyToMany(() => TagEntity, (tag) => tag.products)
+  tags: TagEntity[];
 }

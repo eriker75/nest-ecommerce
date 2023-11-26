@@ -22,6 +22,8 @@ class CartItemDto {
   @IsString()
   @MinLength(2)
   coupon?: string;
+
+  price: number;
 }
 
 export class CreateCartDto {

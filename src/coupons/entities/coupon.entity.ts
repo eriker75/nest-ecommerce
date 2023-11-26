@@ -15,6 +15,12 @@ export class CouponEntity {
   @Column({ unique: true })
   code: string;
 
+  @Column({
+    type: 'enum',
+    enum: ['amount', 'percentage'],
+  })
+  type: 'amount' | 'percentage';
+
   @Column('decimal', { default: 0 })
   discountAmount: number;
 
@@ -24,14 +30,14 @@ export class CouponEntity {
   @Column({ default: 0 })
   productId: string;
 
-  @Column({ default: null })
-  categoryId: string;
+  @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
+  category: string;
 
-  @Column({ default: null })
-  brandId: string;
+  @Column({ type: 'date', name: 'valid_from' })
+  validFrom: Date;
 
-  @Column({ type: 'date' })
-  expiryDate: Date;
+  @Column({ type: 'date', name: 'valid_to' })
+  validTo: Date;
 
   @CreateDateColumn()
   createdAt: Date;
